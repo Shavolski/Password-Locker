@@ -1,6 +1,17 @@
 from contact import Contact
 import random
 
+
+def password(password):
+    '''
+    Function to rewrite the Value error to make it easier to understand
+    '''
+    print("Create new password ")
+    try:
+        number = int(input())
+        return number
+    except ValueError:
+        return "That was not a valid input"
 def create_contact(fname, lname, phone, email):
     '''
     Function to create a new contact
@@ -52,7 +63,7 @@ def main():
             short_code = input().lower()
 
             if short_code == 'cc':
-                    print("New Contact")
+                    print("New User")
                     print("-"*10)
 
                     print("First name ....")
@@ -69,10 +80,10 @@ def main():
                     e_address = input()
 
                     # create and save new contact.
-                    save_contacts(create_contact(
-                        f_name, l_name, p_number, e_address))
+                    save_user(create_user(
+                        f_name, l_name, password, e_address))
                     print('\n')
-                    print(f"New Contact {f_name} {l_name} created")
+                    print(f"New User {f_name} {l_name} created")
                     print('\n')
 
             elif short_code == 'dc':
