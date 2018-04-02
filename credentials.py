@@ -12,7 +12,7 @@ class Credentials:
 
     def save_credential(self):
         '''
-        save_credential method saves contact objects into credential_list
+        save_credential method saves  objects into credential_list
         '''
         Credential.credential_list.append(self)
     def delete_credential(self):
@@ -53,9 +53,9 @@ class Credentials:
         '''
         method that returns the credential list
 
-        contact_found = Contact.find_by_number(number)
+        credential_found = Credential.find_by_password(password)
         '''
-        return cls.contact_list
+        return cls.credential_list
     @classmethod
     def copy_email(cls, password):
         pyperclip.copy(credential_found.email)
