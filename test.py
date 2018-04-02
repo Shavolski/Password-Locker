@@ -84,7 +84,7 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(User.display_users(), User.user_list)
   #This is the test for the credentials
-class TestCredential(unittest.TestCase):
+class TestCredentials(unittest.TestCase):
     '''
     Test class that defines test cases for the contact class behaviours.
 
@@ -95,87 +95,85 @@ class TestCredential(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_contact = Contact("Steve","Wachira","0714091244","steve@moringaschool.com")
+        self.new_credentials = Credential("0714091244","steve@moringaschool.com")
 
     def tearDown(self):
         '''
         tearDown method that does clean up after each test case has run.
         '''
-        Contact.contact_list = []
+        Credentials.credentials_list = []
 
     def test_init(self):
         '''
         test_init test case to test of the object is initialized properly
         '''
-        self.assertEqual(self.new_contact.phone_number,"0714091244")
-        self.assertEqual(self.new_contact.email,"steve@moringaschool.com")
+        self.assertEqual(self.new_credentials.password,"0714091244")
+        self.assertEqual(self.new_credentials.email,"steve@moringaschool.com")
 
-    def test_save_contacts(self):
+    def test_save_credentials(self):
         '''
-        test_save_contacts test case to test if the contact object is saved into the contact list
+        test_save_credentials test case to test if the contact object is saved into the credentials_list
         '''
-        self.new_contact()
-        self.assertEqual(len(Contact.contact_list),1)
+        self.new_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)
 
-    def test_save_multiple_contact(self):
+    def test_save_multiple_credentials(self):
         '''
-        test_save_multiple_contact check if we can save multiple contact objects to our contact_lists
+        test_save_multiple_credentials check if we can save multiple credentials objects to our credentials_lists
         '''
-        self.new_contact.save_contact()
-        test_contact = Contact("Test","user","0714091244","test@user.com")
-        test_contact.save_contact()
-        self.assertEqual(len(Contact.contact_list),2)
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("0714091244","test@user.com")
+        test_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)
 
-    def test_delete_contact(self):
+    def test_delete_credentials(self):
         '''
-        test_delete_contact to test if we can remove a contact from our contact contact_list
+        test_delete_credentials to test if we can remove a credentials from our credentials credentials_list
         '''
-        self.new_contact.save_contact()
-        test_contact = Contact("Test","user","0714091244","test@user.com")
-        test_contact.save_contact()
-        self.new_contact.delete_contact()
-        self.assertEqual(len(Contact.contact_list), 1)
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("0714091244","test@user.com")
+        test_credentials.save_credentials()
+        self.new_credentials.delete_credentials()
+        self.assertEqual(len(Credentials.credentials_list), 1)
 
-    def test_find_contact_by_number(self):
+    def test_find_credentials_by_number(self):
         '''
         test to check if we can find a contact by phone number and display information
         '''
-        self.new_contact.save_contact()
-        test_contact = Contact("Test","user","0714091244","test@user.com")
-        test_contact.save_contact()
-        found_contact = Contact.find_by_number("0714091244")
-        self.assertEqual(found_contact.email, test_contact.email)
+        self.new_credentials.save_credentials()
+        test_credentials.save_credentials()
+        found_credentials = Credentials.find_by_password("1244")
+        self.assertEqual(found_credentials.email, test_credentials.email)
 
-    def test_contact_exists(self):
+    def test_credentials_exists(self):
         '''
         test to check if we can return a Boolean  if we cannot find the contact.
         '''
 
-        self.new_contact.save_contact()
-        test_contact = Contact("Test", "user", "0711223344",
-                               "test@user.com")  # new contact
-        test_contact.save_contact()
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("7112","test@user.com")
+        test_credentials()
 
-        contact_exists = Contact.contact_exist("0711223344")
+        credentials_exists = Credentials.credentials_exist("1244")
 
-        self.assertTrue(contact_exists)
+        self.assertTrue(credentials_exists)
 
-    def test_display_all_contacts(self):
+    def test_display_all_credentials(self):
         '''
-        method that returns a list of all contacts saved
+        method that returns a list of all credentials saved
         '''
 
-        self.assertEqual(Contact.display_contacts(), Contact.contact_list)
+        self.assertEqual(Credentials.display_credentials(), credentials.credentials_list)
 
     def test_copy_email(self):
         '''
-        Test to confirm that we are copying the email address from a found contact
+        Test to confirm that we are copying the email address from a found credentials
         '''
 
-        self.new_contact.save_contact()
-        Contact.copy_email("0712345678")
+        self.new_credentials.save_credentials()
+        Credentials.copy_email("5678")
 
-        self.assertEqual(self.new_contact.email, pyperclip.paste())
+        self.assertEqual(self.new_credentials.email, pyperclip.paste())
 
 if __name__ == '__main__'
     unittest.main()
