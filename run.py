@@ -1,4 +1,5 @@
 from contact import Contact
+import random
 
 def create_contact(fname, lname, phone, email):
     '''
@@ -38,7 +39,7 @@ def display_user():
     return user.display_user()
 
 def main():
-    print("Whatsup Huuuumaaan?.This is the place I the bot maakes passwprds for you. What is your name?")
+    print("Whatsup Huuuumaaan?.This is the place where ,I, the bot makes passwords for you. What is your name?")
     user_name = input()
 
     print(f"Waddup {user_name}. what would you like to do?")
@@ -60,8 +61,9 @@ def main():
                     print("Last name ...")
                     l_name = input()
 
-                    print("Phone number ...")
-                    p_number = input()
+                    print("Password ...")
+                    random_number = random.randint(0,10)
+                    print(random_number)
 
                     print("Email address ...")
                     e_address = input()
@@ -87,34 +89,34 @@ def main():
                     else:
                             print('\n')
                             print(
-                                "You dont seem to have any contacts saved yet")
+                                "you don't have any")
                             print('\n')
 
             elif short_code == 'fc':
 
-                    print("Enter the number you want to search for")
+                    print("Enter the password you want to search for")
 
-                    search_number = input()
-                    if check_existing_contacts(search_number):
+                    search_password = input()
+                    if check_existing_import random(search_password):
                             search_contact = find_contact(
-                                search_number)
+                                search_password)
                             print(
                                 f"{search_contact.first_name} {search_contact.last_name}")
                             print('-' * 20)
 
                             print(
-                                f"Phone number.......{search_contact.number}")
+                                f"Password.......{search_user.password}")
                             print(
-                                f"Email address.......{search_contact.email}")
+                                f"Email address.......{search_user.email}")
                     else:
-                            print("That contact does not exist")
+                            print("Again I don't get it")
 
             elif short_code == "ex":
                     print("Bye .......")
                     break
             else:
                     print(
-                        "I really didn't get that. Please use the short codes")
+                        "I really didn't get that. A PLEASE use the short codes")
 
 if __name__ == '__main__':
     main()
