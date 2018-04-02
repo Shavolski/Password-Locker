@@ -2,60 +2,60 @@ class Credentials:
     """
     Class that generates new instances of credentials
     """
-    credential_list = []
+    credentials_list = []
 
     def __init__(self,password,email):
         self.password = password
         self.email = email
 
-    credential_list = []
+    credentials_list = []
 
-    def save_credential(self):
+    def save_credentials(self):
         '''
-        save_credential method saves  objects into credential_list
+        save_credentials method saves  objects into credentials_list
         '''
-        Credential.credential_list.append(self)
-    def delete_credential(self):
+        Credentials.credentials_list.append(self)
+    def delete_credentials(self):
         '''
-        delete_credential method deletes a saved credential from the credential_list
+        delete_credentials method deletes a saved credentials from the credentials_list
         '''
-        Credential.credential_list.remove(self)
+        Credentials.credentials_list.remove(self)
     @classmethod
     def find_by_password(cls, password):
         '''
-        Method that takes in a password and returns a credential that matches that password.
+        Method that takes in a password and returns a credentials that matches that password.
 
         Args:
             password: password to search before
         Returns:
-           Credential of person that matches the password
+           Credentials of person that matches the password
         '''
-        for credential in cls.credential_list:
-            if.credential.password == password:
-                return credential
+        for credentials in cls.credentials_list:
+            if.credentials.password == password:
+                return credentials
     @classmethod
-    def credential_exist(cls, password):
+    def credentials_exist(cls, password):
         '''
-        Method that checks if a credential exists from the credential list.
+        Method that checks if a credentials exists from the credentials_list.
         Args:
             password: password to search if it exists
         Returns :
-            Boolean: True or false depending if the credential exists
+            Boolean: True or false depending if the credentials_exists
         '''
-        for credential in cls.credential_list:
-            if credential.password == password:
+        for credentials in cls.credentials_list:
+            if credentials.password == password:
                     return True
 
         return False
 
     @classmethod
-    def display_credential(cls):
+    def display_credentials(cls):
         '''
-        method that returns the credential list
+        method that returns the credentials_list
 
-        credential_found = Credential.find_by_password(password)
+        credentials_found = Credentials.find_by_password(password)
         '''
-        return cls.credential_list
+        return cls.credentials_list
     @classmethod
     def copy_email(cls, password):
-        pyperclip.copy(credential_found.email)
+        pyperclip.copy(credentials_found.email)
