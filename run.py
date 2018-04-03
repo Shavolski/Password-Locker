@@ -1,8 +1,9 @@
 from user import User
 from credentials import Credentials
+import random
 
 
-def function():
+def greetings():
     print("                           __      __               ")
     print(" /\      /\               |  |    |  |              ")
     print("|  |    |  |    ________  |  |    |  |      _____   ")
@@ -12,7 +13,7 @@ def function():
     print("|  |    |  |   | |______  |     | |     | |       | ")
     print(" \/      \/     \_______/ \_____/  \____/  \_____/  ")
 
-function()
+greetings()
 
 def password (password):
     '''
@@ -62,38 +63,43 @@ def display_user():
     return user.display_user()
 
 def main():
-    print("Whatsup Huuuumaaan?.This is the place where I, the bot, make passwords for you. What is your name?")
+    print("...........Whatsup Huuuumaaan?.This is the place where I, the bot, make passwords for you. What is your name?...........")
     user_name = input()
 
-    print(f"Waddup {user_name}. what would you like to do?")
+    print(f"........Waddup {user_name}. my master (Developer) wants me to assist you in making a user account.......")
     print('\n')
 
     while True:
             print(
-                "Use these short codes : cc - create a new user, dc - display user, fc -find a user, ex -exit the user list ")
+                "Yo human...Use these short codes to walk through around my master's app : cu - create a new user, dc - display user, fc -find a user, ex -exit the user list")
 
             short_code = input().lower()
 
-            if short_code == 'cc':
-                    print("New User")
+            if short_code == 'cu':
+                    print("...............New User.............")
+                    print("-"*10)
                     print("-"*10)
 
-                    print("First name ....")
+                    print("...............Pop up your First name...............")
                     f_name = input()
+                    print("-"*10)
 
-                    print("Last name ...")
+                    print("...............Pop up your Last name...............")
                     l_name = input()
+                    print("-"*10)
 
-                    print("Password ...")
+                    print("..................Let me do the magic in making your Password................")
                     random_number = random.randint(1000,9999)
                     print(random_number)
+                    print("-"*10)
 
-                    print("Email address ...")
+                    print(".................Email address..................")
                     e_address = input()
+                    print("-"*10)
+                    print("-"*10)
 
                     # create and save new contact.
-                    save_user(create_user(
-                        f_name, l_name, password, e_address))
+                    save_user(create_user(f_name,l_name,password,e_address))
                     print('\n')
                     print(f"New User {f_name} {l_name} created")
                     print('\n')
@@ -120,8 +126,8 @@ def main():
                     print("Enter the password you want to search for")
 
                     search_password = input()
-                    if check_existing_import random(search_password):
-                            search_contact = find_contact(
+                    if check_existing_user(search_password):
+                            search_user = find_user(
                                 search_password)
                             print(
                                 f"{search_user.first_name} {search_user.last_name}")
@@ -139,7 +145,7 @@ def main():
                     break
             else:
                     print(
-                        "I really didn't get that. A PLEASE use the short codes")
+                        "I'm a bot I can't. PLEASE use the short codes")
 
 if __name__ == '__main__':
     main()

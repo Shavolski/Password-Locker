@@ -1,3 +1,5 @@
+import random
+
 class User:
     """
     Class that generates new instances of contacts
@@ -33,8 +35,8 @@ class User:
                 User of person that matches the name
         '''
         for user in cls.user_list:
-            if user.name == name:
-                return contact
+            if user.first_name == first_name:
+                return user
     @classmethod
     def user_exist(cls, name):
         '''
@@ -45,7 +47,7 @@ class User:
             Boolean: True or false depending if the user exists
         '''
         for user in cls.user_list:
-            if user.name == name:
+            if user.first_name == first_name:
                     return True
 
         return False

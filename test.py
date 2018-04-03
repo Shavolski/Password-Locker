@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from user import User
 from credentials import Credentials
 
@@ -156,7 +157,7 @@ class TestCredentials(unittest.TestCase):
 
         self.new_credentials.save_credentials()
         test_credentials = Credentials("1244","test@user.com")
-        test_credentials()
+        test_credentials.__call__()
 
         credentials_exists = Credentials.credentials_exist("1244")
 
