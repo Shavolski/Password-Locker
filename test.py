@@ -179,5 +179,5 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(self.new_credentials.email, pyperclip.paste())
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     unittest.main()
