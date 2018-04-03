@@ -1,8 +1,20 @@
-from contact import Contact
-import random
+from user import User
+from credentials import Credentials
 
 
-def password(password):
+def function():
+    print("                           __      __               ")
+    print(" /\      /\               |  |    |  |              ")
+    print("|  |    |  |    ________  |  |    |  |      _____   ")
+    print("|  |____|  |   |   ___  | |  |    |  |     /     \  ")
+    print("|   ____   |   |  |___| | |  |    |  |    |  ___  | ")
+    print("|  |    |  |   |  ______| |  |__  |  |__  | |___| | ")
+    print("|  |    |  |   | |______  |     | |     | |       | ")
+    print(" \/      \/     \_______/ \_____/  \____/  \_____/  ")
+
+function()
+
+def password (password):
     '''
     Function to rewrite the Value error to make it easier to understand
     '''
@@ -12,7 +24,7 @@ def password(password):
         return number
     except ValueError:
         return "That was not a valid input"
-def create_contact(fname, lname, phone, email):
+def create_contact(fname, lname, password, email):
     '''
     Function to create a new contact
     '''
@@ -39,7 +51,7 @@ def find_user(password):
 
 def check_existing_user(password):
     '''
-    Function that check if a contact exists with that password and return a Boolean
+    Function that check if a user exists with that password and return a Boolean
     '''
     return User.user_exist(password)
 
@@ -50,7 +62,7 @@ def display_user():
     return user.display_user()
 
 def main():
-    print("Whatsup Huuuumaaan?.This is the place where ,I, the bot makes passwords for you. What is your name?")
+    print("Whatsup Huuuumaaan?.This is the place where I, the bot, make passwords for you. What is your name?")
     user_name = input()
 
     print(f"Waddup {user_name}. what would you like to do?")
@@ -58,7 +70,7 @@ def main():
 
     while True:
             print(
-                "Use these short codes : cc - create a new contact, dc - display contacts, fc -find a contact, ex -exit the contact list ")
+                "Use these short codes : cc - create a new user, dc - display user, fc -find a user, ex -exit the user list ")
 
             short_code = input().lower()
 
@@ -73,7 +85,7 @@ def main():
                     l_name = input()
 
                     print("Password ...")
-                    random_number = random.randint(0,10)
+                    random_number = random.randint(1000,9999)
                     print(random_number)
 
                     print("Email address ...")
@@ -88,13 +100,13 @@ def main():
 
             elif short_code == 'dc':
 
-                    if display_contacts():
-                            print("Here is a list of all your contacts")
+                    if display_users():
+                            print("Here is a list of all your user")
                             print('\n')
 
-                            for contact in display_contacts():
+                            for user in display_users():
                                     print(
-                                        f"{contact.first_name} {contact.last_name} .....{contact.number}")
+                                        f"{user.first_name} {user.last_name} .....{user.password}")
 
                             print('\n')
                     else:
@@ -112,7 +124,7 @@ def main():
                             search_contact = find_contact(
                                 search_password)
                             print(
-                                f"{search_contact.first_name} {search_contact.last_name}")
+                                f"{search_user.first_name} {search_user.last_name}")
                             print('-' * 20)
 
                             print(
@@ -123,7 +135,7 @@ def main():
                             print("Again I don't get it")
 
             elif short_code == "ex":
-                    print("Bye .......")
+                    print("Adios!.......")
                     break
             else:
                     print(

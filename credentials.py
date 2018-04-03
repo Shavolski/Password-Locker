@@ -1,3 +1,5 @@
+import random
+
 class Credentials:
     """
     Class that generates new instances of credentials
@@ -31,7 +33,7 @@ class Credentials:
            Credentials of person that matches the password
         '''
         for credentials in cls.credentials_list:
-            if.credentials.password == password:
+            if credentials.password == password:
                 return credentials
     @classmethod
     def credentials_exist(cls, password):

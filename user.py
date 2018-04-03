@@ -33,7 +33,7 @@ class User:
                 User of person that matches the name
         '''
         for user in cls.user_list:
-            if.user.name == name:
+            if user.name == name:
                 return contact
     @classmethod
     def user_exist(cls, name):

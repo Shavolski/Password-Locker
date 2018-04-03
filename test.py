@@ -64,7 +64,7 @@ class TestUser(unittest.TestCase):
         found_user = User.find_by_name("Steve")
         self.assertEqual(found_user.name)
 
-    def test_contact_exists(self):
+    def test_user_exists(self):
         '''
         test to check if we can return a Boolean  if we cannot find the contact.
         '''
@@ -83,7 +83,11 @@ class TestUser(unittest.TestCase):
         '''
 
         self.assertEqual(User.display_users(), User.user_list)
+
+
   #This is the test for the credentials
+
+
 class TestCredentials(unittest.TestCase):
     '''
     Test class that defines test cases for the contact class behaviours.
@@ -95,7 +99,7 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_credentials = Credential("0714091244","steve@moringaschool.com")
+        self.new_credentials = Credential("1244","steve@moringaschool.com")
 
     def tearDown(self):
         '''
@@ -107,7 +111,7 @@ class TestCredentials(unittest.TestCase):
         '''
         test_init test case to test of the object is initialized properly
         '''
-        self.assertEqual(self.new_credentials.password,"0714091244")
+        self.assertEqual(self.new_credentials.password,"1244")
         self.assertEqual(self.new_credentials.email,"steve@moringaschool.com")
 
     def test_save_credentials(self):
@@ -122,7 +126,7 @@ class TestCredentials(unittest.TestCase):
         test_save_multiple_credentials check if we can save multiple credentials objects to our credentials_lists
         '''
         self.new_credentials.save_credentials()
-        test_credentials = Credentials("0714091244","test@user.com")
+        test_credentials = Credentials("1244","test@user.com")
         test_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),2)
 
@@ -131,7 +135,7 @@ class TestCredentials(unittest.TestCase):
         test_delete_credentials to test if we can remove a credentials from our credentials credentials_list
         '''
         self.new_credentials.save_credentials()
-        test_credentials = Credentials("0714091244","test@user.com")
+        test_credentials = Credentials("1244","test@user.com")
         test_credentials.save_credentials()
         self.new_credentials.delete_credentials()
         self.assertEqual(len(Credentials.credentials_list), 1)
@@ -151,7 +155,7 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.new_credentials.save_credentials()
-        test_credentials = Credentials("7112","test@user.com")
+        test_credentials = Credentials("1244","test@user.com")
         test_credentials()
 
         credentials_exists = Credentials.credentials_exist("1244")
