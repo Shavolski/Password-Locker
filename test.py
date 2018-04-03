@@ -61,7 +61,7 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         test_user = User("Test","user")
         test_user.save_user()
-        found_user = User.find_by_name("Steve")
+        found_user = User.first_name("Steve")
         self.assertEqual(found_user.name)
 
     def test_user_exists(self):
@@ -99,7 +99,7 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_credentials = Credential("1244","steve@moringaschool.com")
+        self.new_credentials = Credentials("1244","steve@moringaschool.com")
 
     def tearDown(self):
         '''
@@ -175,7 +175,7 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.new_credentials.save_credentials()
-        Credentials.copy_email("5678")
+        Credentials.copy_email("steve@moringaschool.com")
 
         self.assertEqual(self.new_credentials.email, pyperclip.paste())
 
