@@ -25,7 +25,7 @@ class User:
     @classmethod
     def find_by_name(cls, name):
         '''
-        Method that takes in a name and returns a contact that matches that name.
+        Method that takes in a name and returns a user that matches that name.
 
         Args:
             name: First or Last name to search before
